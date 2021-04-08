@@ -25,20 +25,133 @@
   <!--WEBFONTS-->
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Poiret+One&display=swap" rel="stylesheet">
+  <!--FONTAWESOME-->
+  <script src="https://kit.fontawesome.com/1219d1b540.js" crossorigin="anonymous"></script>
 
   <meta name="theme-color" content="#fafafa">
 </head>
 
 <body>
-  <nav>
-    
-  </nav>
-  <header>
-
+  <header class="row align-items-center justity-content-center bg-header border-gold m-0">
+    <div class="row col-6 col-sm-12 align-items-center p-sm-3" id="identityHeader">
+      <div class="col-12 col-sm-3 col-lg-2">
+        <figure class="rounded-circle bg-white shadow-sm m-2">
+          <img class="img-fluid p-2" src="img/gringottsLogo.png" alt="Logo de la Banque Gringotts">
+        </figure>
+      </div>
+      <div class="d-none d-sm-flex d-xxl-none row col-12 col-sm-9 col-lg-10 align-items-center color-gold">
+        <H1 class="col-12 text-xl-center">GRINGOTTS</H1>
+        <p class="col-12 text-xl-center">La banque des sorciers depuis 1474.</p>
+      </div>
+    </div>
+    <div class="container col-6 col-sm-12 bg-sombre">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"></a>
+          <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse bg-sombre px-1 px-sm-0" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-uppercase">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="index.html">Mes comptes</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Opérations
+                </a>
+                <ul class="dropdown-menu bg-sombre" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="close.html">Clore</a></li>
+                  <li><a class="dropdown-item" href="deposit.html">Dépos</a></li>
+                  <li><a class="dropdown-item" href="withdraw.html">Retrait</a></li>
+                  <li><a class="dropdown-item" href="transfer.html">Transfert</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="statistics.html">Statistiques</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="blog.html">Actualités</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
   </header>
 
-  <!-- Add your site or application content here -->
-  <p>Hello world! This is HTML5 Boilerplate.</p>
+  <main>
+    <div class="container row p-5">
+      <h1 class="color-sombre">Vos comptes bancaires</h1>
+    </div>
+  </main>
+
+  <footer class="bg-sombre">
+    <div class="row mx-auto p-3">
+      <article class="col-12 col-lg-4">
+        <h3 class="text-center color-gold mb-5">Gringotts Banque - 2021</h3>
+      </article>
+      <article class="col-12 col-lg-4">
+        <h3 class="text-center color-gold mb-5">Sitemap</h3>
+        <ul class="list-group list-group-flush text-uppercase">
+          <li class="list-group-item bg-sombre">
+            <a class="nav-link active" aria-current="page" href="index.html">Mes comptes</a>
+          </li>
+          <li class="list-group-item bg-sombre">
+            <a class="nav-link" href="close.html">Clore</a>
+          </li>
+          <li class="list-group-item bg-sombre">
+            <a class="nav-link" href="deposit.html">Dépos</a>
+          </li>
+          <li class="list-group-item bg-sombre">
+            <a class="nav-link" href="withdraw.html">Retrait</a>
+          </li>
+          <li class="list-group-item bg-sombre">
+            <a class="nav-link" href="transfer.html">Transfert</a>
+          </li>
+          <li class="list-group-item bg-sombre">
+            <a class="nav-link" href="statistics.html">Statistiques</a>
+          </li>
+          <li class="list-group-item bg-sombre">
+            <a class="nav-link" href="blog.html">Actualités</a>
+          </li>
+          <li class="list-group-item bg-sombre">
+            <a class="nav-link" href="legals.html">Mentions Légales</a>
+          </li>
+        </ul>
+      </article>
+      <article class="col-12 col-lg-4">
+        <h3 class="text-center color-gold mb-5">Contact</h3>
+        <ul class="list-group list-group-flush">
+          <li class="bg-sombre color-gold row align-items-center mb-3">
+            <div class="col-3 text-center">
+              <i class="fas fa-building"></i>
+            </div>
+            <div class="col-9">
+              <p class="m-0">Chemin de Traverse<br>London UK</p>
+            </div>
+          </li>
+          <li class="bg-sombre color-gold row align-items-center mb-3">
+            <div class="col-3 text-center">
+              <i class="fas fa-phone"></i>
+            </div>
+            <div class="col-9">
+              <p class="m-0">605-475-6961</p>
+            </div>
+          </li>
+          <li class="bg-sombre color-gold row align-items-center mb-3">
+            <div class="col-3 text-center">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="col-9">
+              <p class="m-0">contact@gringotts.london</p>
+            </div>
+          </li>
+        </ul>
+      </article>
+    </div>
+  </footer>
+
   <script src="js/vendor/modernizr-3.11.2.min.js"></script>
   <script src="js/plugins.js"></script>
   <script src="js/main.js"></script>
