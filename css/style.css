@@ -1,20 +1,16 @@
+/*~~~~~ VARIABLES ~~~~~*/
 :root{
     --dark: #424242;
     --gold: #D9B466;
 }
+
+/*~~~~~ HEADING TEXTS ~~~~~*/
 h1, h2, h3, h4, h6 {
     font-family: 'Poiret One', cursive;
 }
 p, span, a, li, figcaption, label, input {
     font-family: 'Nanum Gothic', sans-serif;
-}
-
-.bg-sombre{
-    background-color: var(--dark);
-}
-
-.border-gold{
-    border-bottom: 2px solid var(--gold);
+    word-wrap: break-word;
 }
 
 .color-sombre{
@@ -25,8 +21,52 @@ p, span, a, li, figcaption, label, input {
     color: var(--gold);
 }
 
+/*~~~~~ LINKS ~~~~~*/
+.nav-link, .dropdown-item{
+    color: var(--gold) !important;
+}
+.nav-link.active{
+    color: var(--gold);
+    font-weight: bold;
+}
+.dropdown-item:hover{
+    background-color: transparent;
+}
+
+a{
+    text-shadow: -1px -1px transparent, -1px 0px transparent, -1px 1px transparent, 0px -1px transparent, 0px 1px transparent, 1px -1px transparent, 1px 0px transparent, 1px 1px transparent;
+}
+
+a:hover{
+    color: #fff !important;
+    text-shadow: -1px -1px var(--gold), -1px 0px var(--gold), -1px 1px var(--gold), 0px -1px var(--gold), 0px 1px var(--gold), 1px -1px var(--gold), 1px 0px var(--gold), 1px 1px var(--gold);
+}
+
+/*~~~~~ BACKGROUNDS BORDERS ~~~~~*/
+.bg-header{
+    background: var(--dark);
+}
+
+.bg-sombre{
+    background: var(--dark);
+}
+
+.border-gold{
+    border-bottom: 2px solid var(--gold);
+}
+
+/*~~~~~ TOUCHPADS VIEWPORT ~~~~~*/
 @media screen and (min-width: 576px ) {
-    .bg-sombre{
-        background-color: #fff;
+    .bg-header{
+        background: #fff;
+    }
+}
+
+/*~~~~~ DESKTOP VIEWPORT ~~~~~*/
+@media screen and (min-width: 1400px ) {
+    .bg-header{
+        background: url(../img/gringotts-front-2.jpg);
+        background-attachment: fixed;
+        background-size: contain;
     }
 }
