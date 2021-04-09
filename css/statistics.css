@@ -1,0 +1,10 @@
+.table-sombre {
+    --bs-table-bg: var(--dark);
+    --bs-table-striped-bg: #323232;
+    --bs-table-striped-color: var(--gold);
+    --bs-table-active-bg: #696969;
+    --bs-table-active-color: var(--gold);
+    --bs-table-hover-bg: #141414;
+    --bs-table-hover-color: var(--gold);
+    color: var(--gold);
+}
