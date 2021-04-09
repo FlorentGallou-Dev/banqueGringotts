@@ -33,13 +33,9 @@ p, span, a, li, figcaption, label, input {
     background-color: transparent;
 }
 
-a{
-    text-shadow: -1px -1px transparent, -1px 0px transparent, -1px 1px transparent, 0px -1px transparent, 0px 1px transparent, 1px -1px transparent, 1px 0px transparent, 1px 1px transparent;
-}
-
 a:hover{
     color: #fff !important;
-    text-shadow: -1px -1px var(--gold), -1px 0px var(--gold), -1px 1px var(--gold), 0px -1px var(--gold), 0px 1px var(--gold), 1px -1px var(--gold), 1px 0px var(--gold), 1px 1px var(--gold);
+    font-weight: bold;
 }
 
 /*~~~~~ BACKGROUNDS BORDERS ~~~~~*/
