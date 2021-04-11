@@ -22,7 +22,7 @@
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/blog.css">
+  <link rel="stylesheet" href="css/forms.css">
   <!--WEBFONTS-->
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Poiret+One&display=swap" rel="stylesheet">
@@ -55,7 +55,7 @@
           <div class="collapse navbar-collapse bg-sombre px-1 px-sm-0" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-uppercase">
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="index.html">Mes comptes</a>
+                <a class="nav-link active" aria-current="page" href="index.html">Mes comptes</a>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -72,7 +72,7 @@
                 <a class="nav-link" href="statistics.html">Statistiques</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" href="blog.html">Actualités</a>
+                <a class="nav-link" href="blog.html">Actualités</a>
               </li>
             </ul>
           </div>
@@ -83,9 +83,34 @@
 
   <main class="container my-5">
     <div class="row">
-      <h1 class="color-sombre col-12 mb-5">Actualités de la banque Gringotts</h1>
-      <section class="container col-10 row mx-auto" id="postContainer">
-        
+      <h1 class="color-sombre col-12 mb-5">Dépot sur un de vos comptes</h1>
+      <section class="container col-10 row mx-auto mb-5">
+        <form>
+          <fieldset>
+            <legend>Sélectionnez un de vos comptes</legend>
+            <div class="mb-3">
+              <label for="Select" class="form-label">Vos comptes</label>
+              <select id="Select" class="form-select" required>
+              </select>
+              <div></div>
+            </div>
+            <legend>Indiquez le montant à déposer</legend>
+            <div class="input-group mb-3">
+              <span class="input-group-text">Gal</span>
+              <input type="number" class="form-control" aria-label="Montant (Arrondis au Gallion)" id="amountDeposit" required>
+              <span class="input-group-text">.00</span>
+            </div>
+            <div class="mb-3">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="FieldsetCheck" required>
+                <label class="form-check-label" for="FieldsetCheck">
+                  J'atteste de ce dépot'.
+                </label>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-gold" id="bouttonDeposit">Effectuer le dépot</button>
+          </fieldset>
+        </form>
       </section>
     </div>
   </main>
@@ -99,7 +124,7 @@
         <h3 class="text-center color-gold mb-5">Sitemap</h3>
         <ul class="list-group list-group-flush text-uppercase">
           <li class="list-group-item bg-sombre">
-            <a class="nav-link" aria-current="page" href="index.html">Mes comptes</a>
+            <a class="nav-link active" aria-current="page" href="index.html">Mes comptes</a>
           </li>
           <li class="list-group-item bg-sombre">
             <a class="nav-link" href="close.html">Clore</a>
@@ -117,7 +142,7 @@
             <a class="nav-link" href="statistics.html">Statistiques</a>
           </li>
           <li class="list-group-item bg-sombre">
-            <a class="nav-link active" href="blog.html">Actualités</a>
+            <a class="nav-link" href="blog.html">Actualités</a>
           </li>
           <li class="list-group-item bg-sombre">
             <a class="nav-link" href="legals.html">Mentions Légales</a>
@@ -169,7 +194,8 @@
   <!--BOOSTRAP SCRIPTS-->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
-  <script src="js/blog.js"></script>
+  <script src="js/close.js"></script>
+  <script src="js/deposit.js"></script>
 </body>
 
 </html>
