@@ -18,3 +18,5 @@ Week 7 - Project 6 : A bank order a website using HTML5 - CSS3 - JS - Ajax - Boo
 > 1. Boilerplate base deployed, README.md created, Bootstrap integrated, Webfonts integrated.
 > 2. Header with Nav, Footer done and responsive. Started Blog page.
 > 3. Blog page from api check,
+> 4. Statistics page created, data get from local json file.
+> 5. Index page with security promp hiding everithing till user click button, texte from file and account list loading from file also finished each accound single page qith fill information list.

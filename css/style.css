@@ -1,7 +1,7 @@
 /*~~~~~ VARIABLES ~~~~~*/
 :root{
     --dark: #424242;
-    --gold: #D9B466;
+    --gold: #d9b466;
 }
 
 /*~~~~~ HEADING TEXTS ~~~~~*/
@@ -49,6 +49,45 @@ a:hover{
 
 .border-gold{
     border-bottom: 2px solid var(--gold);
+}
+
+/*~~~~~ ACCOUNT LIST STYLE ~~~~~*/
+.card {
+    background-color: #fff;
+    border: 1px solid var(--gold);
+    padding: 0;
+}
+
+.card-body {
+    background-color: var(--dark);
+    border-bottom: 1px solid var(--gold);
+}
+
+.card-body h5{
+    color: var(--gold);
+    font-size: 1.25rem;
+    text-transform: uppercase;
+}
+
+.card-text{
+    color: #fff;
+}
+
+.blockquote {
+    color: var(--dark);
+    font-size: 1rem;
+}
+
+.btn-gold{
+    color: #fff;
+    background-color: var(--gold);
+    border-color: var(--gold);
+}
+
+.btn-gold:hover {
+    color: #fff;
+    background-color: #daac49;
+    border-color: #daac49;
 }
 
 /*~~~~~ TOUCHPADS VIEWPORT ~~~~~*/
