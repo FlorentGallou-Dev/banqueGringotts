@@ -1,3 +1,5 @@
+/*------------------------------- VARS -------------------------------*/
+
 /*TARGET THE POST TABLE CONTAINER*/
 let statContainer = document.getElementById("statsContainer");
 
@@ -5,6 +7,8 @@ let statContainer = document.getElementById("statsContainer");
 let tableStart = '<tr><td>';
 let tableMiddle = '</td><td>';
 let tableEnd = '</td></tr>';
+
+/*------------------------------- FUNCTIONS -------------------------------*/
 
 document.addEventListener('DOMContentLoaded',function(){
     //Var to use as request to send
@@ -50,3 +54,5 @@ document.addEventListener('DOMContentLoaded',function(){
     httpRequest.open('GET', 'apis/currencies.json', true);
     httpRequest.send();
 });
+
+/*------------------------------- EVENTS EXECUTIONS -------------------------------*/

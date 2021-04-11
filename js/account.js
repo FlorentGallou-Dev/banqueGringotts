@@ -1,3 +1,5 @@
+/*------------------------------- VARS -------------------------------*/
+
 //gets back the page name to use it as the type of account later
 let path = window.location.pathname;
 path = path.split("/").pop();
@@ -9,6 +11,8 @@ let accountContainer = document.getElementById("accountContainer");
 
 //LINK to the security FILE
 var urlAccounts = "apis/accounts.json";
+
+/*------------------------------- FUNCTIONS -------------------------------*/
 
 /*~~~~~~~~~~~~~~~ GET REQUEST TO LIST AND INJECT ACCOUNTS ~~~~~~~~~~~~~~~*/
 
@@ -66,3 +70,5 @@ xhrRequestAccountsGet.send();
 function formatMoney(number){
     return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 }
+
+/*------------------------------- EVENTS EXECUTIONS -------------------------------*/

@@ -1,3 +1,5 @@
+/*------------------------------- VARS -------------------------------*/
+
 /*TARGET THE POST LIST CONTAINER*/
 let postContainer = document.getElementById("postContainer");
 
@@ -5,6 +7,8 @@ let postContainer = document.getElementById("postContainer");
 let cardHTMLStart = '<div class="card col-12 p-0 mb-3"><div class="card-header">';
 let cardHTMLMiddle = '</div><div class="card-body"><blockquote class="blockquote mb-0"><p class="blogContent">';
 let cardHTMLEnd = '</p></blockquote></div></div>';
+
+/*------------------------------- FUNCTIONS -------------------------------*/
 
 document.addEventListener('DOMContentLoaded',function(){
     //Var to use as request to send
@@ -46,3 +50,5 @@ document.addEventListener('DOMContentLoaded',function(){
     httpRequest.open('GET', 'https://oc-jswebsrv.herokuapp.com/api/articles', true);
     httpRequest.send();
 });
+
+/*------------------------------- EVENTS EXECUTIONS -------------------------------*/
