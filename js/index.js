@@ -11,29 +11,38 @@ let otherContainers = {
 //TARGET the button link
 let stopSecurity = document.getElementById("stopSecurity");
 
-//LINK to the FILE
-var url = "apis/index.json";
+//TARGET accounts
+let accountsContainer = document.getElementById("accountsContainer");
+
+//LINK to the security FILE
+var urlSecu = "apis/secu.json";
+
+//LINK to the security FILE
+var urlText = "apis/index.json";
+
+//LINK to the security FILE
+var urlAccounts = "apis/accounts.json";
 
 /*------------------------------- FUNCTIONS -------------------------------*/
 
-/*~~~~~~~~~~~~~~~ GET REQUEST ~~~~~~~~~~~~~~~*/
+/*~~~~~~~~~~~~~~~ GET REQUEST FOR SECURITY CLIKED OR NOT ~~~~~~~~~~~~~~~*/
 
 //VAR to send XHR GET request
-var xhrRequestGet = new XMLHttpRequest();
+let xhrRequestSecuGet = new XMLHttpRequest();
 //REQUEST to read the file that receive if security button has been clicked or not
-xhrRequestGet.onreadystatechange = function() {
+xhrRequestSecuGet.onreadystatechange = function() {
 //Test Request and HTTP ready and ok
 if (this.readyState == 4 && this.status == 200) {
         //Receive JSON file response parse as object
-        var securityResponse = JSON.parse(this.responseText);
+        let securityResponse = JSON.parse(this.responseText);
         //function that will do something with the response
         securityCheck(securityResponse);
     }
 };
 //Methode to ask request
-xhrRequestGet.open("GET", url, true);
+xhrRequestSecuGet.open("GET", urlSecu, true);
 //Methode to send the request
-xhrRequestGet.send();
+xhrRequestSecuGet.send();
 
 //To display or hide security SECTION
 function securityCheck(reponse) {
@@ -44,6 +53,86 @@ function securityCheck(reponse) {
         securityOff();
     };
 };
+
+/*~~~~~~~~~~~~~~~ GET REQUEST To inject secutity text ~~~~~~~~~~~~~~~*/
+
+//VAR to send XHR GET request
+let xhrRequestTextGet = new XMLHttpRequest();
+//REQUEST to read the file that receive if security button has been clicked or not
+xhrRequestTextGet.onreadystatechange = function() {
+//Test Request and HTTP ready and ok
+if (this.readyState == 4 && this.status == 200) {
+        //Receive JSON file response parse as object
+        let text = JSON.parse(this.responseText);
+        //Inject text from file into text paragraph
+        document.getElementsByClassName('textSecu')[0].innerHTML = text[0].text;
+    }
+};
+//Methode to ask request
+xhrRequestTextGet.open("GET", urlText, true);
+//Methode to send the request
+xhrRequestTextGet.send();
+
+/*~~~~~~~~~~~~~~~ GET REQUEST TO LIST AND INJECT ACCOUNTS ~~~~~~~~~~~~~~~*/
+
+/*PREPARE RAW HTML ELEMENT TO RECEIVE POST CONTENT IN BETWEEN*/
+let cardHTMLStart = '<div class="col-12 col-lg-4 my-3 mx-auto"><div class="card mx-1"><div class="card-body"><h5 class="card-title">';
+let cardHTMLAfterTitle = '</h5><p class="card-text">';
+let cardHTMLAfterText = '</p></div><ul class="list-group list-group-flush"><li class="list-group-item owner">';
+let cardHTMLAfterLi = '</li><li class="list-group-item balance">';
+
+//VAR to send XHR GET request
+let xhrRequestAccountsGet = new XMLHttpRequest();
+//REQUEST to read the file that receive if security button has been clicked or not
+xhrRequestAccountsGet.onreadystatechange = function() {
+//Test Request and HTTP ready and ok
+if (this.readyState == 4 && this.status == 200) {
+        //Receive JSON file response parse as object
+        let accountsList = JSON.parse(this.responseText);
+        //Inject text from file into text paragraph
+        //Var used to recreate HTML element
+        let accountFilling = "";
+                    
+        accountsList.forEach(function(val) {
+            //Var to get the object in each line
+            const keys = Object.keys(val);
+            // Will receive account type to create an html page link in button
+            let linkToAccount = "";
+            //loop to use datas each index
+            keys.forEach(function(key) {
+                //to avoid id index fill HTML and values
+                if(key === "type"){
+                    //Receive account type as string without spaces an lowercassed adding .html extension 
+                    linkToAccount = val[key].toLowerCase().replace(/\s/g, '') + ".html";
+                    accountFilling += cardHTMLStart + val[key] + cardHTMLAfterTitle;
+                }
+                else if(key === "Number"){
+                    accountFilling += "N° " + val[key] + cardHTMLAfterText;
+                }
+                else if(key === "Owner"){
+                    accountFilling += "Propriétaire : " + val[key] + cardHTMLAfterLi;
+                }
+                else if(key === "balance"){
+                    accountFilling += "Solde : " + formatMoney(val[key]) + " Gallons" + cardHTMLAfterLi;
+                }
+                else if(key === "operations"){
+                    let lastOperation = val[key].length-1;
+                    accountFilling += "Dernière opération : " + val[key][lastOperation].title + " : " + formatMoney(val[key][lastOperation].amount) + " G"  + '</li></ul><div class="card-body text-center"><a href="' + linkToAccount + '" class="btn btn-gold">Consulter</a></div></div></div>';
+                }
+            });
+        });
+        accountsContainer.innerHTML = accountFilling;
+    }
+};
+//Methode to ask request
+xhrRequestAccountsGet.open("GET", urlAccounts, true);
+//Methode to send the request
+xhrRequestAccountsGet.send();
+
+/*~~~~~~~~~~~~~~~ FORMAT MONEY WITH SPACE AND UNIT ~~~~~~~~~~~~~~~*/
+function formatMoney(number){
+    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+}
 
 /*~~~~~~~~~~~~~~~ SOW HIDE EVENTS ~~~~~~~~~~~~~~~*/
 
@@ -86,55 +175,4 @@ stopSecurity.addEventListener("click", function(){
     };
     const inValidate = JSON.stringify({ visit: true});
     xhr.send(inValidate);*/
-});
-
-/*TARGET THE POST LIST CONTAINER*/
-let accountsContainer = document.getElementById("accountsContainer");
-
-/*PREPARE RAW HTML ELEMENT TO RECEIVE POST CONTENT IN BETWEEN*/
-let cardHTMLStart = '<div class="card-body"><h5 class="card-title">';
-let cardHTMLAfterTitle = '</h5><p class="card-text">';
-let cardHTMLAfterText = '</p></div><ul class="list-group list-group-flush"><li class="list-group-item owner">';
-let cardHTMLAfterLi = '</li><li class="list-group-item balance">';
-let cardHTMLEnd = '</li></ul><div class="card-body text-center"><a href="" class="btn btn-gold see">Consulter</a></div></div>';
-
-document.addEventListener('DOMContentLoaded',function(){
-    //Var to use as request to send
-    let httpRequest = new XMLHttpRequest();
-    //Function execution as server changes state
-    httpRequest.onreadystatechange = function() {
-        //Tests server answer if ready === 4
-        if (httpRequest.readyState === XMLHttpRequest.DONE) {
-            //Now check if HTTP request is OK
-            if (httpRequest.status === 200) {
-                // Var to recreate JSON object in JS
-                let datas = JSON.parse(httpRequest.responseText);
-                //Var used to recreate HTML element
-                let postFilling = "";
-                    
-                datas.forEach(function(val) {
-                    //Var to get the object in each line
-                    const keys = Object.keys(val);
-                    //loop to use datas each index
-                    keys.forEach(function(key) {
-                        //to avoid id index fill HTML and values
-                        if(key === "titre"){
-                            postFilling += cardHTMLStart + val[key] + cardHTMLMiddle;
-                        }
-                        if(key === "contenu"){
-                            postFilling += val[key] + cardHTMLEnd;
-                        }
-                    });
-                });
-                //Inject HTML element in my page
-                postContainer.innerHTML += postFilling;
-            } else {
-                console.log(`Erreur : ${httpRequest.status}`); //Gives HTTP error code is fails.
-            }
-        } else {                                            //Whatever appens it will tell if something went wrong
-            console.log("Rien ne se passe...");
-        }
-    };
-    httpRequest.open('GET', 'https://oc-jswebsrv.herokuapp.com/api/articles', true);
-    httpRequest.send();
 });

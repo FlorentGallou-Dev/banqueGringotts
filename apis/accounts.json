@@ -18,7 +18,11 @@
         },
         {
             "title": "Retrait moto",
-            "amount": 14000
+            "amount": -14000
+        },
+        {
+            "title": "Dépot salaire",
+            "amount": 523
         }
         ]
 },
